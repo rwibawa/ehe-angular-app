@@ -1,0 +1,54 @@
+<p>
+  dashboard works!
+</p>
+
+<ul>
+  <li *ngFor="let user of users$">
+    {{user.name}}
+  </li>
+</ul>
+
+<!-- Form Driven-->
+<!--
+<section class="sample-app-content">
+  <h1>Template-driven Form Example:</h1>
+  <form #f="ngForm" (ngSubmit)="onSubmitTemplateBased()">
+    <p>
+      <label>First Name:</label>
+      <input type="text" [(ngModel)]="user.firstName" required name="fname">
+    </p>
+    <p>
+      <label>Password:</label>
+      <input type="password" [(ngModel)]="user.password" required name="fpassword">
+    </p>
+    <p>
+      <button type="submit" [disabled]="!f.valid">Submit</button>
+    </p>
+  </form>
+
+  {{user.firstName}}
+
+</section>
+-->
+
+<!-- Reactive Form -->
+<section class="sample-app-content">
+  <h1>Model-based Form Example:</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+          <label>First Name:</label>
+          <input type="text" formControlName="firstName">
+      </p>
+      <p>
+          <label>Password:</label>
+          <input type="password" formControlName="password">
+      </p>
+      <p>
+          <button type="submit" [disabled]="!form.valid">Submit</button>
+      </p>
+  </form>
+
+  <button type="button" (click)="resetForm()" >Reset Form</button>
+  <button type="button" (click)="setValue()" >Set Value</button>
+  <button type="button" (click)="patchValue()" >Patch Value</button>
+</section>
